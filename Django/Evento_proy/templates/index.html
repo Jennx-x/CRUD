@@ -1,0 +1,493 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Evento</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet"/>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS y Popper.js (necesario para el funcionamiento del modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Cargando...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar navbar-light">
+                <a href="{% url 'index' %}" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class=" me-2"></i>EVENTO</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="{% static 'img/user.jpg' %}" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Administrador</h6>
+                        <span>Admin</span>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <a href="{% url 'index' %}" class="nav-item nav-link active me-2">Eventos</a>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Buscar">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Mensajes</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="{% static 'img/user.jpg' %}" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon te envio un mensaje</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="{% static 'img/user.jpg' %}" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Laura te envio un mensaje</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="{% static 'img/user.jpg' %}" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Juan te envio un mensaje </h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">Ver todos los mensajes</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notificaciones</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Nuevo cliente registrado</h6>
+                                <small>Hace 20 minutos</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Nueva cita agendada</h6>
+                                <small>Hace 20 minutos</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Nuevo cliente registrado</h6>
+                                <small>Hace 20 minutos</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">Ver todas las notificaciones</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="{% static 'img/user.jpg' %}" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Admin_Evento</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0 p-3">
+                            <a href="#" class="dropdown-item">Mi perfil</a>
+                            <a href="#" class="dropdown-item">Configuración</a>
+                            <div class="text-center mt-3">
+                                <a href="{% url 'signin' %}" class="btn btn-danger btn-sm">Cerrar sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+<!-- Eventos Agendados Inicio -->
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Eventos Agendados</h6>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal">
+                Agregar Evento
+            </button>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th>Lugar</th>
+                        <th>Artista</th>
+                        <th>Duración</th>
+                        <th>Tema</th>
+                        <th>Orador</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for evento in eventos %}
+                    <tr>
+                        <td>{{ evento.nombre }}</td>
+                        <td>{{ evento.fecha }}</td>
+                        <td>{{ evento.lugar }}</td>
+                        <td>
+                            {% if evento.concierto %}
+                                {{ evento.concierto.artista }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if evento.concierto %}
+                                {{ evento.concierto.duracion }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if evento.conferencia %}
+                                {{ evento.conferencia.tema }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if evento.conferencia %}
+                                {{ evento.conferencia.orador }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="d-flex">
+
+                            
+                                <div class="d-flex">
+                                    
+                                    <!-- Aquí se coloca el enlace de eliminación -->
+                                    <form action="{% url 'eliminar_evento' evento.id %}" method="POST" style="display:inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editEventModal" 
+                                            data-id="{{ evento.id }}"
+                                            data-nombre="{{ evento.nombre }}"
+                                            data-fecha="{{ evento.fecha }}"
+                                            data-lugar="{{ evento.lugar }}"
+                                            data-artista="{% if evento.concierto %}{{ evento.concierto.artista }}{% else %}N/A{% endif %}"
+                                            data-duracion="{% if evento.concierto %}{{ evento.concierto.duracion }}{% else %}N/A{% endif %}"
+                                            data-tema="{% if evento.conferencia %}{{ evento.conferencia.tema }}{% else %}N/A{% endif %}"
+                                            data-orador="{% if evento.conferencia %}{{ evento.conferencia.orador }}{% else %}N/A{% endif %}">
+                                            Editar
+                                    </button>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paginación (si es necesario) -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center mt-4">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Siguiente</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<!-- Modal para agregar evento -->
+    
+<div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addEventModalLabel">Agregar Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'registrar_evento' %}" method="POST">
+                    {% csrf_token %}
+                    <!-- Nombre del evento -->
+                    <div class="mb-3">
+                        <label for="eventName" class="form-label">Nombre del Evento</label>
+                        <input type="text" class="form-control" id="eventName" name="eventName" required>
+                    </div>
+
+                    <!-- Fecha del evento -->
+                    <div class="mb-3">
+                        <label for="eventDate" class="form-label">Fecha del Evento</label>
+                        <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+                    </div>
+
+                    <!-- Lugar del evento -->
+                    <div class="mb-3">
+                        <label for="eventPlace" class="form-label">Lugar del Evento</label>
+                        <input type="text" class="form-control" id="eventPlace" name="eventPlace" required>
+                    </div>
+
+                    <!-- Artista (solo para conciertos) -->
+                    <div class="mb-3">
+                        <label for="eventArtist" class="form-label">Artista (Concierto)</label>
+                        <input type="text" class="form-control" id="eventArtist" name="eventArtist">
+                    </div>
+
+                    <!-- Duración (solo para conciertos) -->
+                    <div class="mb-3">
+                        <label for="eventDuration" class="form-label">Duración (Concierto)</label>
+                        <input type="text" class="form-control" id="eventDuration" name="eventDuration">
+                    </div>
+
+                    <!-- Tema (solo para conferencias) -->
+                    <div class="mb-3">
+                        <label for="eventTheme" class="form-label">Tema (Conferencia)</label>
+                        <input type="text" class="form-control" id="eventTheme" name="eventTheme">
+                    </div>
+
+                    <!-- Orador (solo para conferencias) -->
+                    <div class="mb-3">
+                        <label for="eventSpeaker" class="form-label">Orador (Conferencia)</label>
+                        <input type="text" class="form-control" id="eventSpeaker" name="eventSpeaker">
+                    </div>
+
+                    <!-- Botón para enviar el formulario -->
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Agregar Evento</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal para editar evento -->
+<div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="editEventLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editEventLabel">Editar Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editEventForm" method="POST" action="{% url 'editar_evento' %}">
+                    {% csrf_token %}
+                    <input type="hidden" id="editEventId" name="id">
+                    <div class="mb-3">
+                        <label for="editNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="editNombre" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editFecha" class="form-label">Fecha</label>
+                        <input type="date" class="form-control" id="editFecha" name="fecha" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editLugar" class="form-label">Lugar</label>
+                        <input type="text" class="form-control" id="editLugar" name="lugar" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editArtista" class="form-label">Artista</label>
+                        <input type="text" class="form-control" id="editArtista" name="artista">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDuracion" class="form-label">Duración</label>
+                        <input type="text" class="form-control" id="editDuracion" name="duracion">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTema" class="form-label">Tema</label>
+                        <input type="text" class="form-control" id="editTema" name="tema">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editOrador" class="form-label">Orador</label>
+                        <input type="text" class="form-control" id="editOrador" name="orador">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Función para abrir el modal de edición y rellenar el formulario con los datos del evento
+    function openEditModal(id, nombre, fecha, lugar, artista, duracion, tema, orador) {}
+        // Rellena el formulario con los datos del evento
+        document
+
+    // Función para cargar los datos en el modal de edición
+    function setAppointmentData(button) {
+        document.getElementById('editNombre').value = button.getAttribute('data-nombre');
+        document.getElementById('editFecha').value = button.getAttribute('data-fecha');
+        document.getElementById('editLugar').value = button.getAttribute('data-lugar');
+        document.getElementById('editArtista').value = button.getAttribute('data-artista');
+        document.getElementById('editDuracion').value = button.getAttribute('data-duracion');
+        document.getElementById('editTema').value = button.getAttribute('data-tema');
+        document.getElementById('editOrador').value = button.getAttribute('data-orador');
+        document.getElementById('editEventForm').action = "/editarEvento/" + button.getAttribute('data-id');
+    }
+
+    // Función para asignar los datos al formulario de eliminación
+    function setDeleteEventData(button) {
+        var nombre = button.getAttribute('data-nombre');
+        var fecha = button.getAttribute('data-fecha');
+        var form = document.getElementById('deleteEventForm');
+        form.action = '/eliminarEvento/' + nombre + '/' + fecha;
+        $('#deleteAppointmentModal').modal('show');
+    }
+</script>
+
+<script>
+    function editar_evento(id) {
+        const evento = evento [id];
+        document.getElementById('nombreusuarioEdit').value = evento.nombre;
+        document.getElementById('fechaUsuarioEdit').value = evento.fecha;
+        document.getElementById('lugarUsuarioEdit').value = evento.apellidos;
+        document.getElementById('artistaUsuarioEdit').value = evento.artista;
+        document.getElementById('duracionUsuarioEdit').value = evento.duracion;
+        document.getElementById('temaUsuarioEdit').value = evento.tema;
+        document.getElementById('oradorUsuarioEdit').value = evento.orador;
+    }
+    
+    function editar_eventoseleccionado() {
+        const data = {
+            nombr: document.getElementById('nombreUsuarioEdit').value,
+            fecha: document.getElementById('fechaUsuarioEdit').value,
+            lugar: document.getElementById('lugUsuarioEdit').value,
+            artista: document.getElementById('artistaUsuarioEdit').value,
+            duracion: document.getElementById('duracionUsuarioEdit').value,
+            tema: document.getElementById('temaUsuarioEdit').value,
+            orador: document.getElementById('oradorUsuarioEdit').value,
+        
+        };
+    
+        // Realizar la solicitud AJAX
+        fetch(`/actualizar-estudiante/${idUsuario}/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value,
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Actualización exitosa");
+                    listadoEstudiantesTabla(); // Recargar la tabla
+                } else {
+                    alert("Error: " + data.message);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    }
+    </script>
+
+
+
+
+
+<!-- Otros scripts -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/chart/chart.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
